@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://school.com/gen"
+           targetNamespace="http://school.com/gen"
+           elementFormDefault="qualified">
+
+    <!--Get by nif-->
+    <xs:element name="getAlumnoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nif" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAlumnoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumnoInfo" type="tns:alumnoInfo" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--Get List-->
+    <xs:element name="getListaAlumnosRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getListaAlumnosResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumnos" type="tns:listaAlumnos" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Create-->
+    <xs:element name="crearAlumnoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumnoInfo" type="tns:alumnoInfo" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="crearAlumnoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="alumnoInfo" type="tns:alumnoInfo" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--Delete-->
+    <xs:element name="eliminarAlumnoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nif" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="eliminarAlumnoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="tns:operationStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- ////////////////////////// -->
+    <!--enum-->
+    <xs:simpleType name="operationStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Success"/>
+            <xs:enumeration value="Fail"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--alumnoInfo-->
+    <xs:complexType name="alumnoInfo">
+        <xs:sequence>
+            <xs:element name="nif" type="xs:string" />
+            <xs:element name="nombre" type="xs:string" />
+            <xs:element name="apellidos" type="xs:string" />
+            <xs:element name="email" type="xs:string" />			
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Lista de alumnos -->
+    <xs:complexType name="listaAlumnos">
+        <xs:sequence>
+            <xs:element name="alumno" type="tns:alumnoInfo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

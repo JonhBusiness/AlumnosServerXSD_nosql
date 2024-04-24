@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
+Visite https://eclipse-ee4j.github.io/jaxb-ri 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.04.19 a las 02:34:01 PM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://school.com/gen">
+    <schemaBindings map="false">
+      <package name="com.company.generated"/>
+    </schemaBindings>
+    <bindings scd="tns:getAlumnoRequest">
+      <class ref="com.company.generated.GetAlumnoRequest"/>
+    </bindings>
+    <bindings scd="tns:getAlumnoResponse">
+      <class ref="com.company.generated.GetAlumnoResponse"/>
+    </bindings>
+    <bindings scd="~tns:alumnoInfo">
+      <class ref="com.company.generated.AlumnoInfo"/>
+    </bindings>
+  </bindings>
+</bindings>
+
