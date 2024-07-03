@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: EC2 on master branch push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
+
+      - name: Test Connection to Server
+        run: |
+          ssh -i ${{ secrets.EC2_SSH_KEY }} -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} "echo Connection successful"
