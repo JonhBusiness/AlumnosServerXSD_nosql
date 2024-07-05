@@ -26,4 +26,4 @@ jobs:
           USER: ubuntu
           KEY: ${{ secrets.EC2_SSH_KEY}}
         run: |
-          ssh  $USER@$HOST "echo 'SSH connection successful'"
+          ssh  $USER@$HOST -p 16251 "echo 'SSH connection successful'"
