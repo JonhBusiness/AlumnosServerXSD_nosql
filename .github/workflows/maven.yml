@@ -20,5 +20,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
   
-      - name: Test SSH connection
-        run: ssh -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 16251 "echo Connection successful"
+      - name: Test SSH connection to AWS EC2
+        env:
+          HOST: 0.tcp.ngrok.io
+          USER: ubuntu
+          KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          echo "${KEY}" > my_private_key.pem
+          chmod 400 my_private_key.pem
+          ssh -i "my_private_key.pem" -o StrictHostKeyChecking=no $USER@$HOST "echo 'SSH connection successful'"
