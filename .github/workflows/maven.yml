@@ -21,4 +21,4 @@ jobs:
 
       - name: Test Connection to Server
         run: |
-          ssh -i /tmp/ssh_key -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 10845 "echo Connection successful"
+          ssh -v -i /tmp/ssh_key -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 10845 "echo Connection successful"
