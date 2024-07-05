@@ -14,11 +14,11 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v2
 
-      - name: Set up SSH key local
-        run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
-          chmod 600 /tmp/ssh_key
-
-      - name: Test Connection to Server
-        run: |
-          ssh -v -i /tmp/ssh_key -o StrictHostKeyChecking=no ubuntu@2.tcp.ngrok.io - p 15431 "echo Connection successful"
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.EC2_SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+  
+      - name: Test SSH connection
+        run: ssh -o StrictHostKeyChecking=no ubuntu@2.tcp.ngrok.io -p 15431 "echo Connection successful"
