@@ -26,6 +26,4 @@ jobs:
           USER: ubuntu
           KEY: ${{ secrets.EC2_SSH_KEY}}
         run: |
-          echo "${KEY}" > my_private_key.pem
-          chmod 400 my_private_key.pem
-          ssh -i "my_private_key.pem" -o StrictHostKeyChecking=no $USER@$HOST "echo 'SSH connection successful'"
+          ssh  $USER@$HOST "echo 'SSH connection successful'"
