@@ -16,9 +16,9 @@ jobs:
 
       - name: Set up SSH key local
         run: |
-          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_key
           chmod 600 /tmp/ssh_key
 
       - name: Test Connection to Server
         run: |
-          ssh -i /tmp/ssh_key -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} "echo Connection successful"
+          ssh -i /tmp/ssh_key -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "echo Connection successful"
