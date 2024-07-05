@@ -16,9 +16,9 @@ jobs:
 
       - name: Set up SSH key local
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/ssh_key
+          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key
           chmod 600 /tmp/ssh_key
 
       - name: Test Connection to Server
         run: |
-          ssh -i /tmp/ssh_key -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 13449 "echo Connection successful"
+          ssh -i /tmp/ssh_key -o StrictHostKeyChecking=no ubuntu@192.168.1.112 "echo Connection successful"
