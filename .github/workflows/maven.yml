@@ -24,7 +24,7 @@ jobs:
         env:
           HOST: 0.tcp.ngrok.io
           USER: ubuntu
-          KEY: ${{ secrets.SSH_KEY }}
+          KEY: ${{ secrets.EC2_SSH_KEY}}
         run: |
           echo "${KEY}" > my_private_key.pem
           chmod 400 my_private_key.pem
