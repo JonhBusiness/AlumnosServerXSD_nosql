@@ -21,4 +21,4 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
   
       - name: Test SSH connection
-        run: ssh -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 16251 "echo Connection successful"
+        run: ssh -o StrictHostKeyChecking=no ubuntu@0.tcp.ngrok.io -p 18498  "echo Connection successful"
